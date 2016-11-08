@@ -1,0 +1,1056 @@
+@charset "utf-8";
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:"PingFang SC",Helvetica,Arial,"微软雅黑","黑体";
+    list-style: none;
+    color: #333;
+    text-decoration: none;
+}
+.box{ width: 100%; margin: auto;}
+.header{
+    height: 50px;
+    background: #e73d41;
+    width: 100%;
+}
+.scrapt{
+    margin: 0 10px;
+}
+.header .scrapt{
+    position: relative;
+    padding: 0 10px;
+    margin: 0;
+    width: 100%;
+}
+.header .scrapt i,
+.header .scrapt b{
+    position: absolute;
+}
+.header .scrapt p{
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 48px;
+}
+.header .scrapt i{
+    left: 10px;
+    width: 4.5%;
+    top: 15px;
+}
+.header .scrapt b{
+    right: 10px;
+    width: 5%;
+    top:13px;
+}
+.header .scrapt i img,
+.header .scrapt b img{
+    width: 100%;
+}
+
+/*主体*/
+.content{
+    background: #e8e8ed;
+	margin-top:50px;
+	margin-bottom:40px;
+}
+.carousel,
+.carousel .imgList,
+.carousel .imgList li,
+.carousel .imgList li img{
+    width: 100%;
+}
+.carousel{
+    position: relative;
+}
+.carousel .imgList li,
+.carousel .iconlist i{
+    float: left;
+}
+.carousel .imgList{
+    /*overflow: hidden;*/
+    /*height: 413px;*/
+}
+.carousel .iconlist {
+    position: absolute;
+    left: 41%;
+    width: 18.6%;
+    overflow: hidden;
+    top:90%;
+}
+.carousel .iconlist i{
+    width: 11.3%;
+    margin-left: 4.2%;
+    margin-right: 4.2%;
+}
+.carousel .iconlist i img{
+    width: 100%;
+}
+.carousel .ershou{
+    position: absolute;
+    width: 7.5%;
+    right: 10px;
+    top:0;
+    z-index: 100;
+}
+.carousel .ershou img{
+    width: 100%;
+}
+.detail,
+.coupon,
+.sizeColor,
+.enterStore,
+.goodRated{
+    background: #fff;
+    padding-top: 10px;
+}
+.enterStore,
+.goodRated{
+    margin-top: 10px;
+}
+.goodRated{
+    padding-top: 0;
+}
+.detail .scrapt{
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+.detail .title{
+    font-size: 1rem;
+}
+.priceStore{
+    margin-top: 10px;
+    overflow: hidden;
+}
+.priceStore .left{
+    width: 70%;
+}
+.priceStore .left,
+.priceStore .left .price,
+.priceStore .left .yuanPrice{
+    float: left;
+}
+.priceStore .right{
+    float: right;
+    margin-top: 3px;
+}
+.priceStore .left .price,
+.priceStore .left .price a{
+    color:#dd3939;
+}
+.priceStore .left .price{
+    font-size: 0.6rem;
+}
+.priceStore .left .price a{
+    font-size: 1.2rem;
+}
+.priceStore .left .yuanPrice,
+.priceStore .right,
+.priceStore .right a,
+.priceStore .left .yuanPrice a{
+    color: #999;
+    font-size: 0.8rem;
+}
+.priceStore .left .yuanPrice{
+    margin-left: 5.2%;
+    margin-top: 3px;
+}
+
+
+.coupon .scrapt{
+    overflow: hidden;
+}
+.coupon span,
+.couponList,
+.couponList li{
+    float: left;
+}
+.couponList .amount{
+    float: right;
+}
+.coupon span,
+.couponList .amount span,
+.sizeColor .size span,
+.sizeColor .color span{
+    font-size: 0.9rem;
+    color: #999;
+}
+.coupon span,
+.couponList .amount span,{
+    margin-top: 8px;
+}
+.couponList{
+    margin-left:3.4%;
+    width: 63%;
+}
+.coupon .amount{
+    width: 19%;
+    float: right;
+}
+.coupon .amount i,
+.coupon .amount span{
+    float: right;
+}
+.coupon .amount i{
+    width: 24%;
+    margin-left: 6%;
+    margin-top: 3px;
+}
+.coupon .amount i img{
+    width: 100%;
+}
+
+.couponList li{
+    margin-right: 3%;
+    height: 24px;
+    margin-bottom: 10px;
+}
+.couponList li i,.valueVoucher .ct ul li i,
+.couponList li p,.valueVoucher .ct ul li p,
+.couponList li b,.valueVoucher .ct ul li b{
+    float: left;
+}
+
+.couponList li p,
+.valueVoucher .ct ul li p{
+    height: 24px;
+    border-top: 1px solid #e4393c;
+    border-bottom: 1px solid #e4393c;
+    line-height: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 0.7rem;
+    color: #e4393c;
+}
+
+.sizeColor{
+    margin-top: 10px;
+}
+.sizeColor .color,
+.sizeColor .size{
+    overflow: hidden;
+}
+.sizeColor .color{
+    margin-top: 10px;
+}
+.sizeColor .size span,
+.sizeColor .color span,
+.sizeColor .size p,
+.sizeColor .color p{
+    float: left;
+}
+.sizeColor .size p{
+    margin-top: 2px;
+}
+.sizeColor .size span,
+.sizeColor .color span{
+    width: 12%;
+    color: #999;
+    font-size: 0.9rem;
+}
+.sizeColor .size p,
+.sizeColor .color p{
+    overflow: hidden;
+    width: 88%;
+}
+.sizeColor .size p a,
+.sizeColor .color p a{
+    float: left;
+    font-size: 0.9rem;
+    color: #666;
+    border-right: 1px solid #eee;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+.coupon span{
+    margin-top: 3px;
+}
+.sizeColor .color{
+    border-bottom: 1px solid #eeeeee;
+}
+.sizeColor .send span{
+    color: #999;
+    margin-right: 6%;
+}
+.sizeColor .send a,
+.sizeColor .send span{
+    font-size: 0.9rem;
+}
+.sizeColor .send{
+    padding: 10px 0;
+}
+.enterStore{
+    padding-bottom: 10px;
+    position: relative;
+}
+.enterStore .scrapt{
+    overflow: hidden;
+}
+.enterStoreLeft,
+.enterStoreCt,
+.enterStoreRight,
+.enterStoreCt .credibility span,
+.enterStoreCt .credibility i{
+    float: left;
+}
+.enterStoreLeft{
+    width:24%;
+}
+.enterStoreLeft img{
+    width: 100%;
+}
+.enterStoreCt{
+    width: 42%;
+    margin-left: 2.4%;
+}
+.enterStoreCt .title{
+    font-size: 1rem;
+    height: 21px;
+    overflow: hidden;
+}
+
+.enterStoreCt .shopCustomer,
+.enterStoreCt .shopCustomer span,
+.enterStoreCt .time,
+.enterStoreCt .time span,
+.enterStoreCt .credibility span{
+    color: #666;
+    font-size: 0.9rem;
+}
+.enterStoreCt .credibility i{
+    width: 9%;
+    margin-right: 2px;
+}
+.enterStoreCt .credibility i img{
+    width: 100%;
+}
+.enterStoreRight{
+    float: right;
+    width: 28%;
+}
+.enterStoreRight .enter{
+    width: 100%;
+    height: 30px;
+    line-height: 28px;
+    border: 1px solid #e4393c;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.enterStoreRight .enter i,
+.enterStoreRight .rz i{
+    width: 12.5%;
+    margin-left: 17.5%;
+    float: left;
+}
+.enterStoreRight .enter i img,
+.enterStoreRight .rz i img{
+    width: 100%;
+}
+.enterStoreRight .enter span,
+.enterStoreRight .rz span{
+    font-size: 0.8rem;
+    color: #e4393c;
+    float: left;
+    margin-left: 3px;
+}
+.enterStoreRight .rz{
+    margin-top: 10px;
+}
+
+
+.goodRated .top{
+    border-bottom: 1px solid #ddd;
+}
+.goodRated .top .scrapt{
+    height: 50px;
+    line-height: 50px;
+}
+.goodRated .top .left{
+    float: left;
+    width: 60%;
+}
+.goodRated .top .right{
+    float: right;
+    color: #696969;
+    font-size: 0.9rem;
+}
+.goodRated .top .left .text{
+    font-size: 1rem;
+}
+.goodRated .top .left .exp{
+    margin-left: 3%;
+    color: #e4393c;
+    font-size: 0.8rem;
+}
+.goodRated .top .left .exp a{
+    font-weight: bold;
+    color: #e4393c;
+    font-size: 0.9rem;
+}
+.goodRatedList .scrapt{
+    border-bottom: 1px solid #eee;
+    padding: 10px 0 6px;
+}
+.goodRatedList .information{
+    overflow: hidden;
+}
+.goodRatedList .information .left,
+.goodRatedList .information .left i,
+.goodRatedList .information .left span,
+.goodRatedList .colorSize p{
+    float: left;
+}
+.goodRatedList .colorSize .size{
+    margin-left: 10px;
+}
+.goodRatedList .information .left i{
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+.goodRatedList .information .left i img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.goodRatedList .information .left span,
+.goodRatedList .information .time{
+    font-size: 0.8rem;
+    margin-top: 11px;
+}
+.goodRatedList .information .left span{
+    margin-left: 15px;
+}
+.goodRatedList .information .time{
+    float: right;
+    color: #999;
+}
+.goodRatedList .exp{
+    font-size: 0.8rem;
+    width: 91%;
+    line-height: 20px;
+    margin-top: 10px;
+}
+.goodRatedList .colorSize{
+    overflow: hidden;
+    margin-top: 2px;
+}
+.goodRatedList .colorSize p,
+.goodRatedList .colorSize p a{
+    color: #999;
+    font-size: 0.7rem;
+}
+.goodRatedList .colorSize p a{
+    margin-left: 2px;
+}
+.lookAllRate{
+    text-align: center;
+    height: 50px;
+    line-height: 49px;
+    font-size: 0.95rem;
+}
+.productDetile .top{
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 0.95rem;
+    background: #fff;
+    margin: 10px 0;
+}
+.productDetileCt{
+    background: #fff;
+    border-top: 1px solid #b3b3b3;
+    overflow: hidden;
+}
+.productDetileCt li{
+    width: 50%;
+    border-bottom: 1px solid #b3b3b3;
+    height: 50px;
+    line-height: 48px;
+    float: left;
+    font-size: 0.9rem;
+}
+.positionImg{
+    background: #fff;
+    margin: 10px 0 0;
+    border-bottom: 10px solid #e8e8ed;
+}
+.positionImg p{
+    margin: 0 10px;
+    padding: 20px 0;
+}
+.positionImg p img{
+    width: 100%;
+}
+.footer{
+    height: 40px;
+    width: 100%;
+}
+.footer .hdy,
+.footer .enterApp{
+    float: left;
+    height:40px;
+    line-height: 39px;
+}
+.footer .hdy{
+    width: 35%;
+    background: #fff;
+}
+.footer .enterApp{
+    width: 65%;
+    background: #e4393c;
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+}
+.footer .hdy i{
+    width: 20%;
+    margin: 8px 0 0 10px;
+}
+.footer .hdy i img{
+    width: 100%;
+}
+.footer .hdy i,
+.footer .hdy span{
+    float: left;
+}
+.footer .hdy span{
+    font-size: 1rem;
+    margin-left: 11%;
+}
+.return-top{
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 50px;
+    border:2px solid #a9a8a6;
+    position: fixed;
+    right: 10px;
+    bottom: 60px;
+}
+.return-top p{
+    width:32%;
+    margin: 6px auto 0;
+}
+.return-top p img{
+    width: 100%;
+}
+.return-top span{
+    font-size: 0.8rem;
+    text-align: center;
+    display: block;
+}
+
+/*店铺名称*/
+.connectBuyer{
+    position: absolute;
+    right: 0;
+    width: 18.4%;
+    top:25px;
+}
+.connectBuyer p{
+    width: 100%;
+    height: 30px;
+    background: #e94045;
+    color: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 29px;
+    margin-bottom: 10px;
+}
+
+.shopNotice{
+    margin-top: 10px;
+    border-top: 1px solid #eaeaea;
+    border-bottom: 1px solid #eaeaea;
+}
+.shopNotice,
+.lookShopDetail .top{
+    height: 50px;
+    line-height: 49px;
+    background: #fff;
+}
+
+
+
+.shopNotice .scrapt{
+    overflow: hidden;
+}
+.shopNotice i,
+.shopNotice span{
+    float: left;
+}
+.shopNotice i{
+    width:4.8%;
+    margin-top: 3px;
+}
+.shopNotice i img,
+.lookShopDetail .top i img,
+.lookShopDetail .evaludeate .left p i img{
+    width: 100%;
+}
+.shopNotice span,
+.lookShopDetail .top span,
+.lookShopDetail .evaludeate .left p span{
+    font-size: 0.9rem;
+    color: #666;
+}
+.shopNotice span{
+    margin-left: 6px;
+}
+.lookShopDetail .top{
+    border-bottom: 1px solid #eaeaea;
+}
+.lookShopDetail .top i{
+    float: right;
+    width: 5%;
+}
+.lookShopDetail .evaludeate,
+.lookShopDetail .shopsite{
+    border-bottom: 1px solid #e5e5e5;
+}
+.lookShopDetail .evaludeate .scrapt,
+.lookShopDetail .shopsite,
+.lookShopDetail .evaludeate .left p{
+    overflow: hidden;
+}
+.lookShopDetail .evaludeate .left{
+    border-right: 1px solid #e5e5e5;
+    padding: 10px 0;
+    width: 70%;
+}
+.lookShopDetail .top .left,
+.lookShopDetail .evaludeate .left p span,
+.lookShopDetail .evaludeate .left p i,
+.lookShopDetail .evaludeate .left p a,
+.lookShopDetail .evaludeate .left,
+.lookShopDetail .evaludeate .right{
+    float: left;
+}
+.lookShopDetail .evaludeate .left p i{
+    width: 6%;
+    margin-right: 2%;
+}
+.lookShopDetail .evaludeate .left p span{
+    margin-right: 2%;
+}
+.lookShopDetail .evaludeate .left p a{
+    color: #9a9999;
+    font-size: 1rem;
+}
+.lookShopDetail .evaludeate .right{
+    margin-top: 33px;
+}
+.lookShopDetail .evaludeate .right i,
+.lookShopDetail .evaludeate .right span{
+    float: left;
+}
+.lookShopDetail .evaludeate .right i{
+    width: 21%;
+    margin-left: 20px;
+}
+.lookShopDetail .evaludeate .right i img{
+    width: 100%;
+}
+.lookShopDetail .evaludeate .right span{
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+
+.lookShopDetail .shopsite{
+    height: 40px;
+    line-height: 39px;
+}
+.lookShopDetail .shopsite .scrapt,
+.lookShopDetail .shopsite .scrapt span{
+    font-size: 0.9rem;
+}
+.lookShopDetail .shopsite .scrapt{
+    color: #999;
+}
+.lookShopDetail .shopsite .scrapt span{
+    color: #666;
+}
+
+.valueVoucher .top{
+    background: #fff;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.valueVoucher .top span{
+    float: left;
+    font-size: 0.9rem;
+    color: #666;
+}
+.valueVoucher .top i{
+    float: right;
+    width: 5%;
+}
+.valueVoucher .top i img{
+    width: 100%;
+}
+.valueVoucher .ct{
+    margin-top: 10px;
+}
+.valueVoucher .ct ul{
+    overflow: hidden;
+}
+.valueVoucher .ct ul li{
+    float: left;
+    margin-bottom: 10px;
+    height: 24px;
+    margin-right: 5px;
+}
+
+.classifyList .top{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0 5px;
+    background: #fff;
+    height: 55px;
+}
+.classifyList .top ul{
+    overflow: hidden;
+}
+.classifyList .top ul li{
+    float: left;
+    width: 33%;
+    border-right: 1px solid #ddd;
+}
+/*修改 11月3 */
+.classifyList .top ul li .icon{
+    width: 12%;
+    margin:0 auto;
+}
+.classifyList .top ul li .icon i,
+.classifyList .top ul li .icon b,
+.classifyList .top ul li .icon i img,
+.classifyList .top ul li .icon b img{
+    width: 100%;
+    display: block;
+}
+.classifyList .top ul li .icon b{
+    display: none;
+}
+
+/*结束*/
+.classifyList .top ul li p{
+    width: 100%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+.classifyList .top ul .on p{
+    color: #e24445;
+}
+
+.classifyList .list{
+    padding-top: 10px;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    height: 52px;
+}
+.classifyList .list li{
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px 4.93%;
+    background: #f0f2f5;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+}
+.classifyList .list .on{
+    background: #fff;
+    color: #e24445;
+    border: 1px solid #e24445;
+}
+
+.productList{
+    margin-top: 1px;
+    overflow: hidden;
+}
+.productList li{
+    width: 49.6%;
+    margin-right: 3px;
+    background: #fff;
+    margin-bottom: 3px;
+    float: left;
+}
+.productList li:nth-child(2n){
+    margin-right: 0;
+}
+.productList li img{
+    width: 100%;
+}
+.productList li .price{
+    overflow: hidden;
+}
+.productList li .price .now,
+.productList li .price .yuan{
+    float: left;
+}
+.productList li .price .now{
+    font-size: .8rem;
+    margin-left: 10px;
+}
+.productList li .price .now a{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.productList li .price .now,
+.productList li .price .now a{
+    color: #e53b3e;
+}
+.productList li .price .yuan{
+    color: #a0a0a6;
+    text-decoration: line-through;
+    margin-left: 3px;
+    font-size: 0.9rem;
+    margin-top: 3px;
+}
+.productList li .title{
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    padding-bottom:10px;
+    padding-top: 3px;
+}
+.drapTop{
+    height: 50px;
+}
+.drapTop a{
+    display: block;
+    width: 25%;
+    margin: 0 auto ;
+    padding-top: 13px;
+}
+.drapTop a i,
+.drapTop a span{
+    float: left;
+}
+.drapTop a i{
+    width: 15%;
+}
+.drapTop a i img{
+    width: 100%;
+}
+.drapTop a span{
+    font-size: 1rem;
+}
+
+
+
+
+@media screen and (max-width: 320px){
+    .header .scrapt p{
+        font-size: 1rem;
+    }
+    .enterStoreCt .shopCustomer,
+    .enterStoreCt .shopCustomer span,
+    .enterStoreCt .time,
+    .enterStoreCt .time span,
+    .enterStoreCt .credibility span{
+        font-size: 0.8rem;
+    }
+    .connectBuyer p{
+        font-size: 0.75rem;
+        margin-bottom: 5px;
+    }
+    .connectBuyer{
+        top:13px;
+    }
+    .classifyList .top ul li i{
+        width: 14%;
+    }
+    .productList li{
+        margin-right: 2px;
+        margin-bottom: 2px;
+    }
+
+}
+@media screen and (min-width: 321px) and (max-width: 413px){
+    .enterStoreCt p{
+        height: 21px;
+    }
+    .connectBuyer{
+        top:20px;
+    }
+    .classifyList .top ul li i{
+        width: 13%;
+    }
+}
+@media screen and (min-width: 414px){
+    .enterStoreCt p{
+        height: 23px;
+    }
+    .enterStoreCt .credibility i{
+        margin-top: 2px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 1080px){
+    .header{
+        position: fixed;
+        top:0;
+        left: 0;
+        z-index: 1000;
+    }
+    .footer{
+        position: fixed;
+        bottom:0;
+        left: 0;
+    }
+
+}
+
+@media screen and (min-width: 414px){
+    .lookShopDetail .evaludeate .left p i{
+        width: 5%;
+    }
+    .productList li{
+        margin-right: 2px;
+    }
+}
+@media screen and (min-width:375px){
+    .lookShopDetail .evaludeate .right i{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .box {
+        width: 680px;
+        margin: 0 auto;
+        position: relative;
+    }
+    .enterStoreRight{
+        width: 20%;
+    }
+    .enterStoreRight .enter{
+        height:40px;
+        line-height:38px;
+        margin-top:45px;
+    }
+    .enterStoreRight .enter i, .enterStoreRight .rz i{
+        margin-left:18%;
+        margin-top:3px;
+        margin-right:6px;
+    }
+    .enterStoreRight .rz i{
+        margin-top: 0;
+    }
+    .enterStoreRight .enter span, .enterStoreRight .rz span{
+        margin-left:3px;
+        font-size: 1rem;
+    }
+    .enterStoreRight .rz{
+        margin-top: 20px;
+    }
+    .enterStoreCt .title{
+        font-size: 1.3rem;
+        height: 30px;
+    }
+    .enterStoreCt .shopCustomer,
+    .enterStoreCt .shopCustomer span,
+    .enterStoreCt .time,
+    .enterStoreCt .time span,
+    .enterStoreCt .credibility span{
+        font-size: 1rem;
+    }
+    .enterStoreCt .credibility i{
+        width: 6%;
+    }
+    .enterStoreCt p{
+        margin-top: 10px;
+    }
+    .content{
+        margin-top: 0;
+    }
+    .header .scrapt i{
+        width: 2.5%;
+    }
+    .header .scrapt b{
+        width: 3%;
+    }
+    .coupon .amount i{
+        width: 15%;
+    }
+    .content{
+        margin-bottom: 0;
+    }
+    .footer .hdy i{
+        width: 13%;
+        margin-top:3px;
+    }
+    .lookShopDetail .evaludeate .left p i{
+        width: 3.2%;
+    }
+    .shopNotice i{
+        width:3.8%;
+        margin-top: 5px;
+    }
+    .lookShopDetail .top i,
+    .valueVoucher .top i{
+        width: 3%;
+    }
+    .connectBuyer{
+        width: 14.4%;
+        top:50px;
+    }
+    .classifyList .top ul li i{
+        width: 10%;
+    }
+    .drapTop a{
+        width: 15%;
+    }
+    .drapTop a i{
+        width: 14%;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

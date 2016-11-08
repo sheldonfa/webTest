@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="MobileOptimized" content="320">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
+    <link rel="stylesheet" href="css/main.css"/>
+    <style>
+        .fixedPosition{
+            position: relative;
+        }
+        .replacePosition{
+            position: relative;
+        }
+    </style>
+    <script src="js/jquery-1.11.3.js"></script>
+    <script>
+        $(function(){
+            var arrayStart = [];
+            var arrayMove = [];
+            var arrayEnd = [];
+            window.addEventListener("touchstart",function(){
+                clearAllInterval(arrayEnd);
+                arrayStart.push(setInterval("classifyLists()",1));
+                console.log("touchstart")
+            });
+            window.addEventListener("touchmove", function(){
+                clearAllInterval(arrayStart);
+                arrayMove.push(setInterval("classifyLists()",1));
+                console.log("touchmove")
+            });
+            window.addEventListener("touchend",function(){
+                clearAllInterval(arrayMove);
+                arrayEnd.push(setInterval("classifyLists()",1));
+                console.log("touchend")
+                endInterval(arrayEnd)
+            });
+        });
+
+        function clearAllInterval(array){
+            setTimeout(function(){
+                for(var i=0;i<array.length;i++){
+                    var ter = array[i];
+                    clearInterval(ter);
+                }
+                console.log("complete");
+            },10);
+        }
+
+        function endInterval(array){
+            setTimeout(function(){
+                for(var i=0;i<array.length;i++){
+                    var ter = array[i];
+                    clearInterval(ter);
+                }
+                console.log("complete");
+            },3500);
+        }
+
+        function classifyLists(){
+            var targetTop=$(this).scrollTop();//滚动条到顶部的高度
+            var fixedTop=$(".fixedPosition").offset().top;//目标到顶部的高度
+            var replaceTop = $(".replacePosition").offset().top;
+            var headline = 0;
+            if($(".header").length>0){
+                headline = $(".header").height();
+            }
+//            console.log("滚动条到顶部的高度"+targetTop);
+//            console.log("目标到顶部的高度"+fixedTop);
+//            console.log("替代到顶部的高度"+replaceTop);
+            /*如果目标模块小于顶端位置固定，显示替换模块*/
+            if( targetTop+headline>=fixedTop ){
+                $(".replacePosition").attr("style","height:"+$(".fixedPosition").height()+"px").show();
+                $(".fixedPosition").css({
+                    position:"fixed",
+                    top:headline+"px",
+                    left:0
+                });
+            }
+            /*如果替换模块大于顶端位置隐藏，目标位置不固定*/
+            if(targetTop+headline<replaceTop){
+                $(".replacePosition").hide();
+                $(".fixedPosition").css({
+                    position:"relative",
+                    width:"100%",
+                    top:"0px"
+                })
+            }
+            console.log("执行")
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="box" id="box">
+
+    header
+    <div class="header">
+        <div class="scrapt">
+            <i><img src="image/delete.png" alt=""/></i>
+            <p>店铺名称</p>
+            <b><img src="image/share.png" alt=""/></b>
+        </div>
+    </div>
+
+    <!--content-->
+    <div class="content" style="background: #f8f8f8;">
+        <div class="shangmian">
+            <!--进入店铺-->
+            <div class="enterStore" style="margin-bottom: 10px;border-bottom: 1px solid #eaeaea;">
+                <div class="scrapt">
+                    <i class="enterStoreLeft"><img src="image/image_1.png" alt=""/></i>
+                    <div class="enterStoreCt">
+                        <p class="title">凡兔</p>
+                        <p class="shopCustomer">
+                            店主 :   <span>李三</span>
+                        </p>
+                        <p class="time">
+                            时间 : <span>09:00-18:00</span>
+                        </p>
+                        <p class="credibility">
+                            <span>信誉度 :</span>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/unstar.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                        </p>
+                    </div>
+                </div>
+                <div class="connectBuyer">
+                    <p>买卖私聊</p>
+                    <p>联系卖家</p>
+                </div>
+            </div>
+
+            <!--店铺公告-->
+            <div class="shopNotice">
+                <div class="scrapt">
+                    <i><img src="image/tishi.png" alt=""/></i>
+                    <span>店铺公告 :全场优惠，限时抢购</span>
+                </div>
+            </div>
+
+            <!--查看店铺详情-->
+            <div class="lookShopDetail">
+                <div class="top">
+                    <div class="scrapt">
+                        <span>查看店铺详情</span>
+                        <i><img src="image/arrowBottom.png" alt=""/></i>
+                    </div>
+                </div>
+
+                <div class="evaludeate">
+                    <div class="scrapt">
+                        <div class="left">
+                            <p>
+                                <span>描述相符:</span>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon3.png" alt=""/></i>
+                                <a>4.0分</a>
+                            </p>
+
+                            <p>
+                                <span>服务态度:</span>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon3.png" alt=""/></i>
+                                <a>4.0分</a>
+                            </p>
+
+                            <p>
+                                <span>配送速度:</span>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon2.png" alt=""/></i>
+                                <i><img src="image/icon3.png" alt=""/></i>
+                                <a>4.0分</a>
+                            </p>
+                        </div>
+                        <div class="right">
+                            <i><img src="image/icon1.png" alt=""/></i>
+                            <span>已认证</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shopsite">
+                    <div class="scrapt">店铺地址: <span>北京市海淀区玉渊潭南路17号</span></div>
+                </div>
+            </div>
+
+            <!--领取优惠券-->
+            <div class="valueVoucher">
+                <div class="top">
+                    <div class="scrapt">
+                        <span>领取优惠券</span>
+                        <i><img src="image/arrowBottom.png" alt=""/></i>
+                    </div>
+                </div>
+
+                <div class="ct">
+                    <div class="scrapt">
+                        <ul>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                            <li>
+                                <i><img src="image/leftImg.png" alt=""/></i>
+                                <p>满999减100</p>
+                                <b><img src="image/rightImg.png" alt=""/></b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--全部商品掌柜推荐-->
+        <div class="classifyList">
+            <!--定位-->
+            <div class="replacePosition" style="display: none;"></div>
+            <div class="fixedPosition" style="width: 100%;">
+                <div class="top">
+                    <ul>
+                        <!--i是灰色的，b是红色的-->
+                        <li class="on">
+                            <!--新-->
+                            <div class="icon">
+                                <i>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon4.png" alt=""/>
+                                </i>
+                                <b>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon5.png" alt=""/>
+                                </b>
+                            </div>
+                            <!--新-->
+
+
+
+                            <p>全部商品</p>
+                        </li>
+                        <li>
+                            <!--新-->
+                            <div class="icon">
+                                <i>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon7.png" alt=""/>
+                                </i>
+                                <b>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon6.png" alt=""/>
+                                </b>
+                            </div>
+                            <!--新-->
+
+
+                            <p>掌柜推荐</p>
+                        </li>
+                        <li>
+                            <!--新-->
+                            <div class="icon">
+                                <i>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon9.png" alt=""/>
+                                </i>
+                                <b>
+                                    <!--<img src="image/icon4.png" alt=""/>-->
+                                    <img src="image/icon8.png" alt=""/>
+                                </b>
+                            </div>
+                            <!--新-->
+
+
+                            <p>精打细算</p>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="list">
+                    <li class="on">男装</li>
+                    <li>女装</li>
+                    <li>鞋子</li>
+                    <li>大鞋子</li>
+                </ul>
+            </div>
+
+
+
+
+            <ul class="productList">
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+                <li><img src="image/image_3.png" alt=""/>
+                    <p class="price">
+                        <span class="now">￥<a>355</a></span>
+                        <span class="yuan">￥599</span>
+                    </p>
+                    <p class="title">开始感到喀什的可粉红色的</p>
+                </li>
+
+            </ul>
+            <p class="drapTop">
+                <a>
+                    <i><img src="image/drapTop.png" alt=""/></i>
+                    <span>上拉刷新</span>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="footer">
+        <div class="hdy">
+            <i><img src="image/hd.png" alt=""/></i>
+            <span>蝴蝶云</span>
+        </div>
+        <p class="enterApp">进入APP购买</p>
+    </div>
+
+
+    <!--<div class="return-top">-->
+        <!--<p><img src="image/returnTop.png" alt=""/></p>-->
+        <!--<span>顶部</span>-->
+    <!--</div>-->
+
+
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="MobileOptimized" content="320">
+    <!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
+    <!-- Link Swiper's CSS -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            /*background: #eee;*/
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color:#000;
+            margin: 0;
+            padding: 0;
+        }
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+
+        <!--header-->
+        <div class="header">
+            <div class="scrapt">
+                <i><img src="image/delete.png" alt=""/></i>
+                <p>i369购物-商品详情</p>
+                <b><img src="image/share.png" alt=""/></b>
+            </div>
+        </div>
+
+        <!--content-->
+        <div class="content">
+            <!--轮播图-->
+            <div class="carousel swiper-container" >
+                <ul class="imgList swiper-wrapper" style="">
+                    <li class="swiper-slide"><img src="image/image_0.png" alt=""/> </li>
+                    <li class="swiper-slide">dsffsfsdfs</li>
+                    <li class="swiper-slide"><img src="image/image_0.png" alt=""/> </li>
+                    <li class="swiper-slide"><img src="image/image_0.png" alt=""/></li>
+                    <li class="swiper-slide"><img src="image/image_0.png" alt=""/></li>
+                </ul>
+                <div class="swiper-pagination"></div>
+                <!--<div class="iconlist">-->
+                    <!--<i><img src="image/circle-unsel.png" alt=""/></i>-->
+                    <!--<i><img src="image/circle-unsel.png" alt=""/></i>-->
+                    <!--<i><img src="image/circle-unsel.png" alt=""/></i>-->
+                    <!--<i><img src="image/circle-unsel.png" alt=""/></i>-->
+                    <!--<i><img src="image/circle-unsel.png" alt=""/></i>-->
+                <!--</div>-->
+                <p class="ershou">
+                    <img src="image/ershou.png" alt=""/>
+                </p>
+            </div>
+
+            <!--详情-->
+            <div class="detail">
+                <div class="scrapt">
+                    <p class="title">HOLIDAY 2016年新款韩国经典性感裸肩中长款连衣裙蕾丝 红色 XL</p>
+                    <div class="priceStore">
+                        <p class="left">
+                            <span class="price">￥<a>269.00</a></span>
+                            <span class="yuanPrice">原价: <a style="text-decoration: line-through">120</a></span>
+                        </p>
+                       <p class="right">库存: <a>24件</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!--优惠券-->
+            <div class="coupon">
+                <div class="scrapt">
+                    <span>优惠券</span>
+                    <ul class="couponList">
+                        <li>
+                            <i><img src="image/leftImg.png" alt=""/></i>
+                            <p>满999减100</p>
+                            <b><img src="image/rightImg.png" alt=""/></b>
+                        </li>
+                        <li>
+                            <i><img src="image/leftImg.png" alt=""/></i>
+                            <p>满99减20</p>
+                            <b><img src="image/rightImg.png" alt=""/></b>
+                        </li>
+                        <li>
+                            <i><img src="image/leftImg.png" alt=""/></i>
+                            <p>满999减100</p>
+                            <b><img src="image/rightImg.png" alt=""/></b>
+                        </li>
+                        <li>
+                            <i><img src="image/leftImg.png" alt=""/></i>
+                            <p>满99减20</p>
+                            <b><img src="image/rightImg.png" alt=""/></b>
+                        </li>
+                    </ul>
+                    <p class="amount">
+                        <i><img src="image/arrowTop.png" alt=""/></i>
+                        <span>共7张</span>
+                    </p>
+                </div>
+            </div>
+
+            <!--尺寸-->
+            <div class="sizeColor">
+                <div class="scrapt">
+                    <div class="size">
+                        <span>尺寸</span>
+                        <p>
+                            <a>XL</a>
+                            <a>XXXL</a>
+                            <a>XL</a>
+                            <a>XXL</a>
+                            <a>XXXL</a>
+                            <a>XL</a>
+                            <a>XXL</a>
+                            <a>XL</a>
+                        </p>
+                    </div>
+
+                    <div class="color">
+                        <span>颜色</span>
+                        <p>
+                            <a>蓝色经典</a>
+                            <a>红色</a>
+                            <a>蓝宝石</a>
+                            <a>紫色紫罗兰</a>
+                            <a>蓝宝石</a>
+                            <a>红色</a>
+                            <a>蓝宝石</a>
+                            <a>紫色紫罗兰</a>
+                            <a>蓝宝石</a>
+                            <a>红色</a>
+                        </p>
+                    </div>
+
+                    <p class="send">
+                        <span>配送说明</span>
+                        <a>支持全国配送</a>
+                    </p>
+                </div>
+            </div>
+
+            <!--进入店铺-->
+            <div class="enterStore">
+                <div class="scrapt">
+                    <i class="enterStoreLeft"><img src="image/image_1.png" alt=""/></i>
+                    <div class="enterStoreCt">
+                        <p class="title">凡兔</p>
+                        <p class="shopCustomer">
+                            店主 :   <span>李三</span>
+                        </p>
+                        <p class="time">
+                            时间 : <span>09:00-18:00</span>
+                        </p>
+                        <p class="credibility">
+                            <span>信誉度 :</span>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                            <i><img src="image/unstar.png" alt=""/></i>
+                            <i><img src="image/star.png" alt=""/></i>
+                        </p>
+                    </div>
+                    <div class="enterStoreRight">
+                        <p class="enter">
+                            <i><img src="image/icon0.png" alt=""/></i>
+                            <span>进入店铺</span>
+                        </p>
+                        <p class="rz">
+                            <i><img src="image/icon1.png" alt=""/></i>
+                            <span>已认证</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--评价-->
+            <div class="goodRated">
+                <div class="top">
+                    <div class="scrapt">
+                        <div class="left">
+                            <span class="text">评价</span>
+                            <span class="exp">好评 <a>98.9%</a></span>
+                        </div>
+                        <div class="right">
+                            共 <span>89</span>条评论
+                        </div>
+                    </div>
+                </div>
+                <ul class="goodRatedList">
+                    <li>
+                        <div class="scrapt">
+                            <div class="information">
+                                <div class="left">
+                                    <i><img src="image/image_1.png" alt=""/></i>
+                                    <span>川妹子</span>
+                                </div>
+                                <p class="time">2016-10-12</p>
+                            </div>
+
+                            <div class="exp">超棒！总算等到打折了！这个腰部很贴身，一定要量好自己的
+                                腰围买，这件裙子被好多朋友夸了。</div>
+
+                            <div class="colorSize">
+                                <p class="color">颜色 :<a>蓝色</a></p>
+                                <p class="size">尺寸 :<a>XL</a></p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="scrapt">
+                            <div class="information">
+                                <div class="left">
+                                    <i><img src="image/image_1.png" alt=""/></i>
+                                    <span>川妹子</span>
+                                </div>
+                                <p class="time">2016-10-12</p>
+                            </div>
+
+                            <div class="exp">超棒！总算等到打折了！这个腰部很贴身，一定要量好自己的
+                                腰围买，这件裙子被好多朋友夸了。</div>
+
+                            <div class="colorSize">
+                                <p class="color">颜色 :<a>蓝色</a></p>
+                                <p class="size">尺寸 :<a>XL</a></p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="scrapt">
+                            <div class="information">
+                                <div class="left">
+                                    <i><img src="image/image_1.png" alt=""/></i>
+                                    <span>川妹子</span>
+                                </div>
+                                <p class="time">2016-10-12</p>
+                            </div>
+
+                            <div class="exp">超棒！总算等到打折了！这个腰部很贴身，一定要量好自己的
+                                腰围买，这件裙子被好多朋友夸了。</div>
+
+                            <div class="colorSize">
+                                <p class="color">颜色 :<a>蓝色</a></p>
+                                <p class="size">尺寸 :<a>XL</a></p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="lookAllRate">查看全部评价</div>
+            </div>
+
+            <!--商品详情-->
+            <div class="productDetile">
+                <p class="top">商品详情</p>
+                <ul class="productDetileCt">
+                    <li style="border-right: 1px solid #b3b3b3;">
+                        <div class="scrapt">
+                            产地: <span>中国广东</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="scrapt">
+                            等级: <span>AAA级</span>
+                        </div>
+                    </li>
+                    <li style="border-right: 1px solid #b3b3b3;">
+                        <div class="scrapt">
+                            产地: <span>红色</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="scrapt">
+                            产地: <span>XXL</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="positionImg">
+                <p><img src="image/image_2.png" alt=""/></p>
+            </div>
+
+        </div>
+
+        <!--footer-->
+        <div class="footer">
+            <div class="hdy">
+                <i><img src="image/hd.png" alt=""/></i>
+                <span>蝴蝶云</span>
+            </div>
+            <p class="enterApp">进入APP购买</p>
+        </div>
+
+
+        <div class="return-top">
+            <p><img src="image/returnTop.png" alt=""/></p>
+            <span>顶部</span>
+        </div>
+
+
+
+    </div>
+</body>
+<script src="js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true
+    });
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
