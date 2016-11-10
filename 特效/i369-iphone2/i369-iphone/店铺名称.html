@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow-x: hidden;">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta name="MobileOptimized" content="320">
-    <!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />-->
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" href="css/main.css"/>
     <style>
         .fixedPosition{
@@ -19,6 +19,36 @@
         }
     </style>
     <script src="js/jquery-1.11.3.js"></script>
+
+    <script src="js/iscroll.js"></script>
+    <script>
+        $(function(){
+            var myscroll;
+            function loaded(){
+                setTimeout(function(){
+                    myscroll=new iScroll("wrapper",{
+//                        snap:true,
+//                        momentum:false,
+                        vScroll:false,
+                        hScroll:true,
+                        hScrollbar:false,
+                        vScrollbar:false,
+                    });
+                },100 );
+            }
+            window.addEventListener("DOMContentLoaded",loaded,false);
+
+            /*设置宽度*/
+            var allSize = 0;
+            $(".classifyList .list li").each(function(i,item){
+//                alert(this.offsetWidth);
+                allSize += $(this).outerWidth()+20;
+                console.log($(this).outerWidth());
+            });
+            $(".classifyList .list").width(allSize);
+        })
+    </script>
+
     <script>
         $(function(){
             var arrayStart = [];
@@ -40,6 +70,15 @@
                 console.log("touchend")
                 endInterval(arrayEnd)
             });
+
+            // 获取对象
+            var cateList = document.getElementById("cateList");
+            cateList.addEventListener("touchmove",function(event){
+                var endX = event.touches[0].clientX;
+                console.log(endX);
+            })
+
+
         });
 
         function clearAllInterval(array){
@@ -59,7 +98,7 @@
                     clearInterval(ter);
                 }
                 console.log("complete");
-            },3000);
+            },3500);
         }
 
         function classifyLists(){
@@ -392,12 +431,21 @@
                         </li>
                     </ul>
                 </div>
-                <ul class="list">
-                    <li class="on">男装</li>
-                    <li>女装</li>
-                    <li>鞋子</li>
-                    <li>大鞋子</li>
-                </ul>
+                <div style="background: #fff;height: 52px;border-bottom: 1px solid #ccc">
+                    <div id="wrapper">
+                        <ul class="list" id="cateList">
+                            <li class="on">男装</li>
+                            <li>女装</li>
+                            <li>鞋子</li>
+                            <li>大鞋子</li>
+                            <li>大鞋子</li>
+                            <li>大鞋子</li>
+                            <li>大鞋子</li>
+                            <li>大鞋子</li>
+                            <li>大鞋子</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
 

@@ -10,14 +10,18 @@
             background: yellow;
         }
     </style>
-    <script src="../frame/jquery-1.9.1.min.js"></script>
-    <script src="../frame/frame.js"></script>
+    <script src="jquery-1.9.1.min.js"></script>
     <script>
         $(function(){
-            var str = '<>\'"';
-            var value = str.escapeHTML();
-            console.log(value);
-            $("#box").html(value);
+            $("#box").on("click",function(){
+                alert("a");
+            })
+            $("#box").on("click",function(){
+                alert("b");
+            })
+            $("#btn").on("click",function(){
+                $("#box").unbind("click");
+            })
         })
     </script>
 </head>
@@ -25,5 +29,6 @@
     <div id="box">
 
     </div>
+    <button id="btn"></button>
 </body>
 </html>
