@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="zepto.js"></script>
+    <script>
+        /**
+         * 遍历
+         */
+        // 数组
+        $.each([1,2,4,"a"],function(index,value){
+            console.log("index:"+index+"--value:"+value);
+        });
+        print();
+        // 对象
+        $.each({zs:"nan"},function(key,value){
+            console.log({key: key,value:value});
+        });
+        print();
+        // 面向对象的方式，注意index 和value的位置
+        [1,2,3,'a'].forEach(function(value,index){
+            console.log(value);
+        });
+        // 遍历还有$.map $.grep
+        print();
+
+        /**
+         * 判断
+         */
+        var obj1 = {name:"fang"};
+        console.log($.isArray(obj1));
+        print();
+
+        /**
+         * 字符串处理
+         */
+        var str = "fang  ";
+        console.log($.trim(str));
+
+        function print(){
+            console.log("--------------------------------------------")
+        }
+
+        /**
+         * 选择
+         */
+        // 和jquery一致
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
