@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <title>Title</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        #wrap {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+        }
+        #scroll {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var wrap = document.querySelector("#wrap");
+            var scroll = document.querySelector("#scroll");
+            var startPoint = 0;
+            var startEl = 0;
+            wrap.addEventListener(
+                    "touchstart",
+                    function(e){
+                        var touch = e.changedTouches[0];
+                        startPoint = touch.pageY;
+                        startEl = scroll.offsetTop;
+                    }
+            );
+            wrap.addEventListener(
+                    "touchmove",
+                    function(e){
+                        var touch = e.changedTouches[0];
+                        var nowPoint = touch.pageY;
+                        var dis = nowPoint-startPoint;
+                        var top = startEl+dis;
+                        // 到顶了
+                        if(top>0){
+                            top=0;
+                        }
+                        // 到底了
+                        var maxTop = wrap.clientHeight-scroll.scrollHeight;
+                        if(top<maxTop){
+                            top = maxTop;
+                        }
+                        scroll.style.top = top +"px";
+                    }
+            )
+        }
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="scroll">
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+        妙味课堂移动端课程--讲师：莫涛 <br>
+    </div>
+</div>
+</body>
+</html>
