@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <!--现在已知的模块化是通过变量封装的模块化，下面的内容在此基础之上-->
+    <script>
+        /*
+         * 变量模块化的变体
+         * 优点：高内聚低耦合，减少全局变量的污染
+         * 缺点：没有私有空间  怎么理解：（我的理解）例如有私有方法我不想暴露出去的需求，这种方式就做不到
+         */
+        // 通过这种变化，可以把功能相关的模块放到一起
+        // 演变出命名空间的概念
+        // 高内聚，低耦合
+
+        // 数学
+        var math = {};
+        // 数学.计算
+        math.calculate = {};
+        // 数学.计算.加法
+        math.calculate.add = {};
+
+        // 数学.转换器
+        math.convertor = {}
+    </script>
+</head>
+<body>
+
+</body>
+</html>

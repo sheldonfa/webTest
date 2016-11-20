@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <!--现在已知的模块化是通过变量封装的模块化，下面的内容在此基础之上-->
+    <script>
+        /*
+         * 引入第三方依赖
+         * 原则：高内聚，低耦合 尽量不要对全局产生依赖
+         */
+        // 如果要用jq，将jq作为参数传入。这与直接使用全局变量的$ 意义完全不同
+        (function(calculator,$){
+            // 私有方法
+            function convert(a){
+                return parseFloat(a);
+            }
+            calculator.mol = function(a,b){
+                return convert(a) - convert(b);
+            };
+            alert($);
+            window.calculator =calculator;
+        })(window.calculator || {},jQuery);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

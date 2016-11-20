@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <!--控制器-->
+    <!--控制器方法-->
+    <div ng-app="myApp" ng-controller="personCtrl">
+        名: <input type="text" ng-model="firstName"><br>
+        姓: <input type="text" ng-model="lastName"><br>
+        <br>
+        姓名: {{fullName()}}
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('personCtrl', function($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+            $scope.fullName = function() {
+                return $scope.firstName + " " + $scope.lastName;
+            }
+        });
+    </script>
+</body>
+</html>

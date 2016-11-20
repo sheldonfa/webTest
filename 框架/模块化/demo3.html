@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <!--现在已知的模块化是通过变量封装的模块化，下面的内容在此基础之上-->
+    <script>
+        /*
+         * 可扩展的模块化
+         */
+        // cal_v1 在这个计算模块中，我们只有加减乘除
+        (function(calculator){
+            // 私有方法
+            function convert(a){
+                return parseFloat(a);
+            }
+            calculator.add = function(a,b){
+                return convert(a) + convert(b);
+            };
+            calculator.sub = function(a,b){
+                return convert(a) - convert(b);
+            };
+            calculator.mul = function(a,b){
+                return convert(a) * convert(b);
+            };
+            calculator.div = function(a,b){
+                return convert(a) / convert(b);
+            };
+            window.calculator = calculator;
+        })(window.calculator || {});
+
+        // cal_v2 需求：添加取余的方法
+        (function(calculator){
+            // 私有方法
+            function convert(a){
+                return parseFloat(a);
+            }
+            calculator.mol = function(a,b){
+                return convert(a) - convert(b);
+            };
+            window.calculator =calculator;
+        })(window.calculator || {});
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

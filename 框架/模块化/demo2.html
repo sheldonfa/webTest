@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化</title>
+    <script src="jquery-1.9.1.min.js"></script>
+    <!--现在已知的模块化是通过变量封装的模块化，下面的内容在此基础之上-->
+    <script>
+        /*
+         * 添加私有空间
+         * 通过立即调用函数的方式，形成一个私有空间，类似于class
+         * 缺点：不可扩展，一旦增加方法，必须修改源码
+         */
+        // 计算模块 一个单独的私有空间
+        var calculate = (function(){
+            // 私有方法
+            function convert(a){
+                return parseFloat(a);
+            }
+            function add(a,b){
+                return convert(a) + convert(b);
+            }
+            function sub(a,b){
+                return convert(a) - convert(b);
+            }
+            function mul(a,b){
+                return convert(a) * convert(b);
+            }
+            function div(a,b){
+                return convert(a) / convert(b);
+            }
+            // 暴露公有方法
+            return {
+                add:add,
+                sub:sub,
+                mul:mul,
+                div:div
+            }
+        })();
+
+        alert(calculate.mul(3,4));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
