@@ -1230,7 +1230,7 @@
 								<div class="space-24"></div>
 
 								<div class="row">
-									<div class="col-xs-12 col-sm-6 widget-container-col">
+									<div id="pos1" class="col-xs-12 col-sm-6 widget-container-col">
 										<div class="widget-box widget-color-orange collapsed">
 											<!-- #section:custom/widget-box.options.collapsed -->
 											<div class="widget-header widget-header-small">
@@ -1269,7 +1269,7 @@
 										</div>
 									</div>
 
-									<div class="col-xs-12 col-sm-6 widget-container-col">
+									<div id="pos2" class="col-xs-12 col-sm-6 widget-container-col">
 										<div class="widget-box">
 											<!-- #section:custom/widget-box.header.options -->
 											<div class="widget-header widget-header-large">
@@ -1963,14 +1963,31 @@
 					placeholder: 'widget-placeholder',
 					forcePlaceholderSize:true,
 					tolerance:'pointer',
+					/**
+					 * 按住鼠标移走的元素，为了效果，原来的位置还保留
+                     */
 					start: function(event, ui) {
 						//when an element is moved, it's parent becomes empty with almost zero height.
 						//we set a min-height for it to be large enough so that later we can easily drop elements back onto it
-						ui.item.parent().css({'min-height':ui.item.height()})
+						/**
+						 * ui.item.parent()其实就是.sortable调用者自己
+ 						 */
+						console.log("start激活");
+						console.log("移动的元素的高度："+ui.item.height());
+						ui.item.parent().css({'min-height':ui.item.height()});
+						console.log("出发点父dom的最小高度是："+ui.item.height());
 						//ui.sender.css({'min-height':ui.item.height() , 'background-color' : '#F5F5F5'})
 					},
+					/**
+					 * 当排序动作结束时且元素坐标已经发生改变时触发此事件。
+                     */
 					update: function(event, ui) {
-						ui.item.parent({'min-height':''})
+						/**
+                         * ui.item.parent()其实是移动dom落脚的父
+						 */
+						console.log("update激活--排序动作结束且坐标改变");
+						ui.item.parent({'min-height':''});
+						console.log("落脚点父dom的最小高度干掉--落脚点id："+ui.item.parent().attr("id"));
 						//p.style.removeProperty('background-color');
 					}
 			    });
