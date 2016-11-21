@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>jQuery UI 放置（Droppable） - 购物车演示</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-    <script src="../../commons/jquery-1.9.1.min.js"></script>
+    <script src="../../../commons/jquery-1.9.1.min.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
     <style>
@@ -19,7 +19,9 @@
             $( "#catalog" ).accordion();
             $( "#catalog li" ).draggable({
                 appendTo: "body",
-                helper: "clone"
+                helper: function(){
+                    return "<li>拖的是自定义dom</li>"
+                }
             });
             $( "#cart ol" ).droppable({
                 activeClass: "ui-state-default",
