@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="../../../commons/jquery-1.9.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style>
+        .container{
+            width: 1000px;
+            height: 1000px;
+            background: #ffc1a9;
+            margin-left:230px;
+            position: relative;
+        }
+        .select{
+            width: 200px;
+            height: 1000px;
+            background: #ffab2c;
+            float: left;
+        }
+        ul li{
+            display:block;
+        }
+        .container_active{
+            background: #d0ffbf;
+
+        }
+        .container_hover{
+            background: red;
+        }
+        .carousel{
+            width:800px;
+            height:400px;
+            background: #bb99ff;
+        }
+        .wid{
+            width:800px;
+            height:400px;
+            background: #3b4ef0;
+        }
+        .hotPoint{
+            width:400px;
+            height:200px;
+            background: #2af040;
+        }
+        .wid_active{
+            background: #d0ffbf;
+
+        }
+        .wid_hover{
+            background: red;
+        }
+    </style>
+    <script>
+        $(function(){
+            // 菜单栏可以拖动
+            $(".select ul li").draggable({
+                helper: function(){
+                    if("carousel"==$(this).attr("id")){
+                        return "<div class='carousel'></div>";
+                    }else if("wid"==$(this).attr("id")){
+                        return "<div class='wid'></div>"
+                    }else if("hotPoint"==$(this).attr("id")){
+                        return "<div class='hotPoint' style='z-index: 10'></div>"
+                    }else {
+                        return;
+                    }
+                }
+            });
+
+            // 内容区可以放置
+            $(".container").droppable({
+//                activeClass:"container_active",
+                hoverClass: "container_hover",
+                // 可接受内容：菜单栏列表
+                accept: ".select ul li",
+                drop: function( event, ui ) {
+                    // 如果是轮播
+                    if("carousel"==ui.draggable.attr("id")){
+                        $( "<div class='carousel'></div>" ).appendTo( this);
+                    // 如果是宽图
+                    }else if("wid"==ui.draggable.attr("id")){
+                        // 创建宽图
+                        var wid = $("<div class='wid'></div>");
+                        // 添加宽图
+                        wid.appendTo( this );
+                        // 设置relative属性
+                        wid.css("position","relative");
+                        // 宽图可缩放
+                        wid.resizable();
+                        // 可放置热点
+                        wid.droppable({
+                            // 防止热点时禁止冒泡
+                            greedy:true,
+//                            activeClass:"wid_active",
+                            hoverClass: "wid_hover",
+                            accept:"#hotPoint",
+                            drop: function(event,ui){
+                                // 创建热点
+                                var hotPoint = $("<div class='hotPoint'></div>");
+                                // 这个宽图到container顶部的距离
+                                var witTop = this.offsetTop;
+                                // 这个宽图到左侧的距离
+                                var witLeft = this.offsetLeft+230;
+                                // 添加热点 位置是ui.position减去margin-left 因为添加的hotPoint位置是相对于宽图的边框的，而ui.position是相对于貌似全屏的
+                                hotPoint.appendTo(this).css("top",ui.position.top-witTop).css("left",ui.position.left-witLeft).css("position","absolute");
+
+
+                                // 验证 如果拖放的时候有部分在外面，自动内聚
+                                if(ui.position.top-witTop+hotPoint.height()>this.offsetHeight){//offsetHeight是div的高度
+                                    hotPoint.css("top",this.offsetHeight-hotPoint.height());
+                                }
+                                if(ui.position.top-witTop<0){
+                                    hotPoint.css("top",0);
+                                }
+                                if(ui.position.left-witLeft<0){
+                                    hotPoint.css("left",0);
+                                }
+                                if(ui.position.left-witLeft+hotPoint.width()>this.offsetWidth){
+                                    hotPoint.css("left",this.offsetWidth-hotPoint.width())
+                                }
+                                // 可拖动
+                                hotPoint.draggable({
+                                    // 约束范围
+                                    containment: "parent"
+                                // 可缩放
+                                }).resizable({
+                                    resize:function(event,ui){
+//                                        // 获取 相对定位坐标
+//                                        var position = absToRel(this,this.parentNode);
+//                                        // 设置为相对定位，并且将定位的值设置为计算后的结果
+//                                        $(this).css("position","absolute").css("top",position.top).css("left",position.left);
+//                                        console.log(this);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                }
+            // 内容区可以排序
+            }).sortable({
+                // 可以上下拖动，但不能左右
+                axis: 'y',
+                sort:function(){
+                }
+
+            });
+
+            /**
+             * 绝对定位转相对定位(相对指定元素)的top left
+             * @param target 目标元素
+             * @param top    绝对top
+             * @param left   绝对left
+             * @param reference 相对元素
+             */
+            function absToRela(target,reference){
+                /**
+                 * target相对reference的定位，就是target的绝对定位-reference的绝对定位
+                 */
+                console.log(target);
+                console.log(reference);
+                var position = {};
+                console.log("target绝对定位："+target.offsetTop+"--"+target.offsetLeft)
+                console.log("reference绝对定位："+reference.offsetTop+"--"+reference.offsetLeft)
+                position.top = target.offsetTop - reference.offsetTop;
+                position.left = target.offsetLeft - reference.offsetLeft;
+                return position;
+            }
+        })
+    </script>
+</head>
+<body>
+    <div class="select">
+        <ul>
+            <li id="carousel">轮播大图</li>
+            <li id="wid">全屏款图</li>
+            <li id="hotPoint">热点</li>
+        </ul>
+    </div>
+
+    <div class="container">
+
+    </div>
+</body>
+</html>
