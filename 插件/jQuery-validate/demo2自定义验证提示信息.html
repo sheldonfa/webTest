@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label.error{
+            background: url("jpg/check.jpg") no-repeat;
+        }
+        label.success{
+            background: url("jpg/check.jpg") no-repeat;
+        }
+    </style>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!--验证核心插件-->
+    <script src="js/jquery.validate.js"></script>
+    <!--国际化，支持中文-->
+    <script src="js/jquery.validate.messages_cn.js"></script>
+    <script>
+        $(function(){
+            $("#myForm").validate({
+                rules:{
+                    name:{
+                        required:true,
+                        minlength: 2
+                    }
+                },
+                /*自定义message信息内容，可以不填*/
+                messages:{
+                    name:{
+                        required:"别空啊",
+                        minlength: "太短了吧"
+                    }
+                },
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <input name="name" type="text">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

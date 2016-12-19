@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-form.js"></script>
+    <script>
+
+        var options = {
+            target:'#output1',          // 把服务器返回的内容放入id为output1的元素中
+            beforeSubmit: fun1,         // 提交前的回调函数
+            success:      fun2,         // 提交后的回调函数
+            dataType: null,             // 接收服务端返回的类型
+        };
+
+        // beforeSubmit前可以作验证
+        function fun1(formData,jqForm,options){
+            // formData 提交值的数组对象
+            // jqForm   表单元素的jQuery对象，jqForm[0]是其dom对象
+            // 该函数如果返回false，则阻止表单提交
+
+            // formData可以判断全部不为空的情况
+            for(var i=0;i<formData.length;i++){
+                if(!formData[i].value){
+                    alert("都不能为空");
+                    return false;
+                }
+            }
+
+            // jqForm可以判断某个不为空的情况
+            var form = jqForm[0];
+            if(!form.name.value){
+                alert("name不能为空");
+                return false;
+            }
+
+            // fieldValue()可以获取多值的数组形式，如checkbox
+            var value = $('input[name=name]').fieldValue();
+            if(!value[0]){
+                return false;
+            }
+        }
+        function fun2(responseText, statusText){
+            // 根据dataType不同responseText解析方式不同，
+            // 默认      responseText
+            // xml      responseXml以xml解析
+            // json     responseJson
+        }
+
+        $(function(){
+            //方式二 与方式一效果一样
+            $("#myForm").submit(function(){
+                $(this).ajaxSubmit(function(){
+                    $("#output1").html("提交成功").show();
+                });
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value="提交">
+        <div id="output1" style="display: none"></div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-form.js"></script>
+    <script>
+        $(function(){
+            //方式二 与方式一效果一样
+            $("#myForm").submit(function(){
+                $(this).ajaxSubmit(function(){
+                    $("#output1").html("提交成功").show();
+                });
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" name="username">
+        <input type="text" name="password">
+        <input type="submit" value="提交">
+        <div id="output1" style="display: none"></div>
+    </form>
+</body>
+</html>

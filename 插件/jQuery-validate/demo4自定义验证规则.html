@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!--验证核心插件-->
+    <script src="js/jquery.validate.js"></script>
+    <!--国际化，支持中文-->
+    <script src="js/jquery.validate.messages_cn.js"></script>
+    <script>
+        $(function(){
+            // 添加新的验证规则
+            $.validator.addMethod(
+                "formulate",                    // 验证方法名称
+                function(value,element,param){  // 验证规则
+                    return value == eval(param);
+                },
+                "请正确输入数学公式计算后的结果"      // 验证提示信息
+            );
+            // 使用
+            $("#myForm").validate({
+                rules:{
+                    code:{
+                        formulate:"7+9"
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <form id="myForm">
+        7+9=<input name="code" type="text">
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>

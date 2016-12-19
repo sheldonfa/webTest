@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <title>Title</title>
+    <style>
+        #big{
+            width: 500px;
+            height: 500px;
+            background: rgba(0,0,0,1);
+            /*padding-left: 100px;*/
+        }
+        #small{
+            background: #f5ff87;
+            height: 400px;
+            /*1不设置宽度，则自动继承父类的宽度500px*/
+            /*width: 400px;*/
+            /*2并且此时padding-left并不会撑开自己也不会撑开父类*/
+            padding-left: 200px;
+        }
+    </style>
+    <scrip>
+        wind
+    </scrip>
+</head>
+<body>
+    <div id="big">
+        <div id="small">asdfasdf</div>
+        <input id="txt" type="text" value="" placeholder="服饰">
+    </div>
+</body>
+</html>
