@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 问题1：引用类型被共享
+        function Person(){
+            this.personValue = "im person";
+            this.friends = ["zhangsan","lisi"];
+        }
+        Person.prototype.getPersonValue = function(){
+            alert (this.personValue);
+        };
+
+        function Student(){
+            this.studentValue = "im student";
+        }
+        // 继承Person
+        Student.prototype = new Person();
+
+        Student.prototype.getStudentValue = function(){
+            alert (this.studentValue);
+        };
+
+        var s1 = new Student();
+        var s2 = new Student();
+        s1.friends.push("wangwu");
+        alert(s1.friends); // zhangsan,lisi,wangwu
+        // s1的设置影响到了s2的属性
+        alert(s2.friends); // zhangsan,lisi,wangwu
+
+        // 问题2：创建子类实例时，不能向父类的构造函数传递参数
+    </script>
+</head>
+<body>
+
+</body>
+</html>

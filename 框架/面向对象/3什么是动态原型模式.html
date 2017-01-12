@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+
+            if(typeof this.sayName != 'function'){
+                Person.prototype.sayName = function(){
+                    alert(this.name);
+                }
+            }
+        }
+
+        // 测试
+        var p1 = new Person("zhangsan",15);
+        var p2 = new Person("zhangsan",15);
+        p1.sayName();
+        p2.sayName();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

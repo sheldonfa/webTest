@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 什么是借用构造函数？解决了原型链中原型包含引用属性就必须共享的问题
+        function Person(){
+            this.friends = ["zs","ls"]
+        }
+
+        function Student(){
+            // 继承Person
+            Person.call(this);
+        }
+
+        var s1 = new Student();
+        var s2 = new Student();
+        s1.friends.push("wangwu");
+        alert(s1.friends); // zs,ls,wangwu
+        alert(s2.friends); // zs,li
+
+        // 解决向父构造函数传递参数的问题
+        function Dog(name){
+            this.name = name
+        }
+
+        function PiPi(){
+            Dog.call(this,"pipi");
+        }
+        var pipi = new PiPi();
+        alert(pipi.name); // pipi
+    </script>
+</head>
+<body>
+
+</body>
+</html>

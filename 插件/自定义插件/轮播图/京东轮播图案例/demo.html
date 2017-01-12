@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东轮播图案例</title>
+    <style>
+        *{padding: 0;margin: 0}
+        ul,li{list-style: none}
+        .body{
+            width: 730px;
+            height: 454px;
+            margin: 100px auto;
+            background: #ba4b39;
+            overflow: hidden;
+            position: relative;
+        }
+        .circle{
+            position: absolute;
+            background: #007a12;
+            left: 50%;
+            margin-left: -50px;
+            top: 100px;
+        }
+        .circle span{
+            float: left;
+            width: 18px;
+            height: 50px;
+            border-radius: 50%;
+            background: red;
+            text-align: center;
+            line-height: 1px;
+            font-size: 50px;
+        }
+
+        #test{
+            margin: auto;
+            /*background: red;*/
+        }
+        #test p{
+            display: inline-block;
+            font-size: 0;
+            line-height: 100px;
+            background: red;
+        }
+        #test p span{
+            font-size: 14px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <div class="slider">
+            <ul>
+                <li><img src="image/11.jpg"></li>
+                <li><img src="image/22.jpg"></li>
+                <li><img src="image/33.jpg"></li>
+                <li><img src="image/44.jpg"></li>
+                <li><img src="image/55.jpg"></li>
+                <li><img src="image/66.jpg"></li>
+            </ul>
+        </div>
+        <div class="circle">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div>
+    </div>
+    <div id="test">
+        <p>
+            aaa
+            <span>
+                啊啊啊啊啊啊啊啊<br/>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+            </span>
+        </p>
+    </div>
+</body>
+</html>

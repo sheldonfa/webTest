@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        // 原型式继承
+        function inheritObject(o){
+            function F(){}
+            F.prototype = o;
+            return new F();
+        }
+
+        // 寄生式继承
+        function inheritPrototype(subClass,superClass){
+            var p = inheritObject(superClass.prototype);
+            p.constructor = subClass;
+            subClass.prototype = p;
+        }
+
+        function Person(name){
+            this.name = name;
+            this.friends = ["zs","ls"]
+        }
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+
+        function Student(name,age){
+            // 继承Person
+            Person.call(this,name);
+            this.age = age;
+        }
+        inheritPrototype(Student,Person);
+
+        var s1 = new Student("xiaofang",18);
+        var s2 = new Student("xiaowang",18);
+        alert(s1 instanceof Person);
+    </script>
+</head>
+<body>
+    <div id="id1"></div>
+    <div id="id2"></div>
+</body>
+</html>

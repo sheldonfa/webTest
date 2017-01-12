@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Calculate(){
+            // 无参返回10
+            function zero(){
+                return 10;
+            }
+            // 一个参数返回10+num
+            function one(num){
+                return 10 +num
+            }
+            // 两个参数返回 和
+            function two(num1,num2){
+                return num1+num2
+            }
+
+            this.add = function(){
+                // 参数长度
+                var arg = arguments,len =arg.length;
+                switch(len){
+                    case 0:
+                        return zero();
+                    case 1:
+                        return one(arg[0]);
+                    case 2:
+                        return two(arg[0],arg[1]);
+                }
+            }
+        }
+
+        //test
+
+        var c = new Calculate();
+        alert(c.add()); //10
+        alert(c.add(5)); //15
+        alert(c.add(5,4)); //9
+        alert(c.add(5,4,3)); // undefined
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

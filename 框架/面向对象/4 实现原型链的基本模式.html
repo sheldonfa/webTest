@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(){
+            this.personValue = "im person"
+        }
+        Person.prototype.getPersonValue = function(){
+            alert (this.personValue);
+        };
+
+        function Student(){
+            this.studentValue = "im student";
+        }
+        // 继承Person
+        Student.prototype = new Person();
+
+        Student.prototype.getStudentValue = function(){
+            alert (this.studentValue);
+        };
+
+        var s = new Student();
+        s.getPersonValue();
+        s.getStudentValue();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        // 原型式继承：让一个对象与另一个对象保持相似
+        function inheritObject(o){
+            function F(){}
+            // 什么是相似，即源对象或源对象的原型是目标对象的原型，而目标对象是可操作的空对象
+            F.prototype = o;
+            return new F();
+        }
+
+        // 寄生式继承：创建对象，增强对象并返回，即为寄生式
+        function inheritPrototype(subClass,superClass){
+            // 创建对象
+            var p = inheritObject(superClass.prototype);
+            // 增强这个对象：什么是寄生式，即新对象不仅有源对象（superClass.prototype）的属性和方法，还有自己独有的属性和方法
+            p.constructor = subClass;
+            // 指定对象
+            subClass.prototype = p;
+        }
+
+        function Person(name){
+            this.name = name;
+            this.friends = ["zs","ls"]
+        }
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+
+        function Student(name,age){
+            // 继承Person
+            Person.call(this,name);
+            this.age = age;
+        }
+        // 本质上，就是用一个"干净的"实例，作为子类的原型，这个实例的原型是父类的原型。与之前new一个父类的实例相比
+        // 1、少了不必要的父类的构造函数中定义的属性
+        // 2、多了指向子类构造函数本身的constructor指针
+        inheritPrototype(Student,Person);
+
+        var s1 = new Student("xiaofang",18);
+        var s2 = new Student("xiaowang",18);
+        alert(s1 instanceof Person);
+    </script>
+</head>
+<body>
+    <div id="id1"></div>
+    <div id="id2"></div>
+</body>
+</html>

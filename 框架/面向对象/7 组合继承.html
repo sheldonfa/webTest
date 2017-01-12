@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person(name){
+            this.name = name;
+            this.friends = ["zs","ls"]
+        }
+        Person.prototype.sayName = function(){
+            alert(this.name);
+        };
+
+        function Student(name,age){
+            // 继承Person
+            Person.call(this,name);
+            this.age = age;
+        }
+        Student.prototype = new Person();
+
+        var s1 = new Student("xiaofang",18);
+        var s2 = new Student("xiaowang",18);
+        s1.sayName();
+        s2.sayName();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

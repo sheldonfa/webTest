@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // 提示框对象
+        function AlertPop(text){
+            this.content = text;
+        }
+        AlertPop.prototype.show = function(){
+            //显示弹框
+            alert("aa");
+        };
+
+        // 警告框
+        function WarnPop(text){
+            this.content = text;
+        }
+        WarnPop.prototype.show = function(){
+            //显示弹框
+        };
+
+        // 确认框
+        function ConfirmPop(text){
+            this.content = text;
+        }
+        ConfirmPop.prototype.show = function(){
+            //显示弹框
+        };
+
+        // 测试
+        var ap = new AlertPop("您的内容有误");
+        var wp = new WarnPop("可能有问题哦");
+        var cp = new ConfirmPop("您确定吗");
+        ap.show();
+        wp.show();
+        cp.show();
+
+        var PopFactory = function(name){
+            switch (name){
+                case 'alert':
+                    return new AlertPop("您的内容有误");
+                case 'warn':
+                    return new WarnPop("可能有问题哦");
+                case 'confirm':
+                    return new ConfirmPop("您确定吗");
+
+            }
+        };
+
+        var a = PopFactory('alert');
+        a.show();
+
+        function createPop(type,text){
+            var o = new Object();
+            o.content = text;
+            o.show = function(){
+                // 显示方法
+            };
+            if(type == 'alert'){
+                // 提示弹框差异部分
+            }
+            if(type == 'warn'){
+                // 警告弹框差异部分
+            }
+            if(type == 'confirm'){
+                // 确认框差异部分
+            }
+            return o;
+        }
+
+        var a = createPop('alert','内容有误')
+    </script>
+</head>
+<body>
+
+</body>
+</html>
