@@ -46,22 +46,18 @@
             // 默认      responseText
             // xml      responseXml以xml解析
             // json     responseJson
+            alert("success");
         }
 
         $(function(){
             //方式二 与方式一效果一样
-            $("#myForm").submit(function(){
-                $(this).ajaxSubmit(function(){
-                    $("#output1").html("提交成功").show();
-                });
-                return false;
-            })
+            $("#myForm").ajaxForm(options); // 要想使options生效，需要作为参数传递
         })
     </script>
 </head>
 <body>
     <form id="myForm">
-        <input type="text" name="username">
+        <input type="text" name="name">
         <input type="text" name="password">
         <input type="submit" value="提交">
         <div id="output1" style="display: none"></div>
